@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- These are your project's default colors -->
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <!-- VVV  ADD THIS LINE TO FIX THE CRASH  VVV -->
+    <color name="material_grey_300">#E0E0E0</color>
+
+</resources>

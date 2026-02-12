@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.calculators.CurrencyActivity">
+
+    <!-- 1. Toolbar for the header with a back arrow (remains the same) -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/currency_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        app:title="Currency Converter"
+        app:titleTextColor="@android:color/black" />
+
+    <!-- THE FIX: Switched to RelativeLayout to anchor views -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 3. Keypad is now aligned to the bottom of the screen -->
+        <include
+            android:id="@+id/keypad_container"
+            layout="@layout/numeric_keypad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+
+        <!-- 2. Display area now fills the space ABOVE the keypad -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/keypad_container"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Input Display TextView (replaces EditText) -->
+            <TextView
+                android:id="@+id/currency_input_display"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="start"
+                android:gravity="end"
+                android:hint="0"
+                android:maxLines="1"
+                android:textColor="@android:color/black"
+                android:textColorHint="#BDBDBD"
+                android:textSize="48sp" />
+
+            <!-- From and To Currency Spinners -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinner_from_currency"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="#F2F2F2"
+                    android:padding="8dp" />
+
+                <Spinner
+                    android:id="@+id/spinner_to_currency"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="#F2F2F2"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <!-- Result Display TextView -->
+            <TextView
+                android:id="@+id/text_view_currency_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="end"
+                android:textColor="#757575"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                tools:text="= 8,300.00"
+                android:singleLine="true"
+                android:ellipsize="none"
+                android:minHeight="50dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
